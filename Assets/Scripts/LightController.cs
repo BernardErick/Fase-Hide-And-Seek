@@ -7,6 +7,7 @@ public class LightController : MonoBehaviour
     public float velocityLight = 0.3f;
     private bool catchPlayer = false;
     private int LightZ = 0;
+    public GameObject Warning;
     void Start()
     {
         StartCoroutine(LightRotateTime());
@@ -38,7 +39,10 @@ public class LightController : MonoBehaviour
     {
         if (collision.CompareTag("Jogador")) {
             Debug.Log("Jogador capturado!");
-            collision.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+            if (!collision.GetComponent<PlayerController>().invulnerable)
+                this.Warning.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
+            else
+                Debug.Log("Spyman não pode fazer nada. Motivo: Jogador está invulneravel!");         
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -46,7 +50,7 @@ public class LightController : MonoBehaviour
         if (collision.CompareTag("Jogador"))
         {
             Debug.Log("Jogador fugiu!");
-            collision.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            this.Warning.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);
         }
     }
 }

@@ -2,4 +2,11 @@
 
 # FEATURES
 
-- Implementar rotação aleatoria da head do inimigo. [X]
+- [x] Implementar rotação aleatoria da luz do inimigo.
+- [x] Implementar mudança de endpoints do inimigo aleatoria.
+- [x] Melhorar exibição de detecção do inimigo.
+- [x] Implementar mecanica dos Objetos HIDE.
+- [x] Implementar sistema de esconde-esconde entre personagem, objeto e inimigo.
+- [ ] Implementar perseguição do monstro ao ver o jogador não escondido.
+- [ ] Tratar problemas de Label no eixo Z. (Sprites por cima de outros)
+- [ ] Aumento do tamanho da fase.
