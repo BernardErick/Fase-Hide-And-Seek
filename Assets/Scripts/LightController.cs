@@ -5,7 +5,6 @@ using UnityEngine;
 public class LightController : MonoBehaviour
 {
     public float velocityLight = 0.3f;
-    private bool catchPlayer = false;
     private int LightZ = 0;
     public GameObject Warning;
     void Start()
@@ -20,7 +19,7 @@ public class LightController : MonoBehaviour
     }
     public IEnumerator LightRotateTime()
     {
-        while (!catchPlayer)
+        while (true)
         {
             yield return new WaitForSeconds(2.0f);
             int randZ = Random.Range(-360, 360);
@@ -39,8 +38,9 @@ public class LightController : MonoBehaviour
     {
         if (collision.CompareTag("Jogador")) {
             Debug.Log("Jogador capturado!");
-            if (!collision.GetComponent<PlayerController>().invulnerable)
+            if (!collision.GetComponent<PlayerController>().invulnerable) {
                 this.Warning.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
+            }
             else
                 Debug.Log("Spyman não pode fazer nada. Motivo: Jogador está invulneravel!");         
         }
