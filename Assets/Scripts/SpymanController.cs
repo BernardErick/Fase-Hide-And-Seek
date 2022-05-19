@@ -8,11 +8,14 @@ public class SpymanController : MonoBehaviour
     private bool catchPlayer = false;
     private Vector3 position;
     public float velocity = 0.2f;
+    public GameObject player;
     void Start()
     {
         this.endpoints = new ArrayList();
-        this.endpoints.Add(new Vector3(21.2999992f, 31.1000004f, -50));
-        this.endpoints.Add(new Vector3(-3.4000001f, 31.1000004f, -50));
+        this.endpoints.Add(new Vector3(-0.0900000036f, -0.340000004f, -50));
+        this.endpoints.Add(new Vector3(6.80000019f, 38.0999985f, -50));
+        this.endpoints.Add(new Vector3(6.80000019f, 69.5999985f, -50));
+        this.endpoints.Add(new Vector3(6.80000019f, -4.80000019f, -50));
         StartCoroutine(ChangePositionTime());
     }
 
@@ -25,9 +28,16 @@ public class SpymanController : MonoBehaviour
     {
         while (!catchPlayer)
         {
-            int pos = Random.Range(0, 2);
-            Debug.Log("Random Position SPYMAN: " + pos);
-            this.position = (Vector3)this.endpoints[pos];
+            int pos = Random.Range(0, 7);
+            if (pos >= 4)
+            {
+                Debug.Log("Random Position TO PLAYER: "+pos);
+                this.position = this.player.transform.position;
+            }
+            else {
+                Debug.Log("Random Position SPYMAN: " + pos);
+                this.position = (Vector3)this.endpoints[pos];
+            }       
             yield return new WaitForSeconds(2.0f);
         }
     }

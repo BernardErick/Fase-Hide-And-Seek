@@ -7,6 +7,7 @@
 - [x] Melhorar exibição de detecção do inimigo.
 - [x] Implementar mecanica dos Objetos HIDE.
 - [x] Implementar sistema de esconde-esconde entre personagem, objeto e inimigo.
-- [ ] Implementar perseguição do monstro ao ver o jogador não escondido.
+- [REMOVIDO] Implementar perseguição do monstro ao ver o jogador não escondido.
 - [x] Tratar problemas de Label no eixo Z. (Sprites por cima de outros)
 - [ ] Aumento do tamanho da fase.
+- [x] Iniciar mecanica de ver anotações.

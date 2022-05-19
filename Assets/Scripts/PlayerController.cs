@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public bool is_C_pressed;
     public bool can_walk;
     public bool invulnerable;
+    public Animator animator;
     void Start()
     {
         
@@ -24,10 +25,37 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        if(can_walk)
+
+        if (can_walk) {
             this.rigidbody2D.transform.Translate(new Vector2(horizontal, vertical) * velocity * Time.deltaTime);
+            this.animation_controller(horizontal, vertical);
+        }
+            
     }
     void action_player() {
         this.is_C_pressed = Input.GetKeyDown(KeyCode.C);
+    }
+    void animation_controller(float horizontal, float vertical) {
+        if (horizontal < 0 || horizontal > 0)
+        {
+            animator.Play("PlayerWalk_Horizontal");
+            if (horizontal > 0)
+                this.GetComponent<SpriteRenderer>().flipX = true;
+            if (horizontal < 0)
+                this.GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else if (vertical < 0 || vertical > 0) 
+        {
+            if (vertical > 0) {
+                animator.Play("PlayerWalk_Up");
+            }
+            if (vertical < 0) {
+                animator.Play("PlayerWalk_Down");
+            }
+        }
+        else
+        {
+            animator.Play("PlayerIdle");
+        }
     }
 }
