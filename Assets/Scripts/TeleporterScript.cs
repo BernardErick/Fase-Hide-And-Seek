@@ -5,6 +5,7 @@ using UnityEngine;
 public class TeleporterScript : MonoBehaviour
 {
     public Vector3 destino;
+    public GameObject player;
     void Start()
     {
         
@@ -18,7 +19,7 @@ public class TeleporterScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Jogador")) {
-
+            this.player.transform.position = this.destino;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

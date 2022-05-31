@@ -19,6 +19,7 @@ public class InteractiveLabelAction : MonoBehaviour
 
     public int currentText;
 
+
     void Start()
     {
         this.currentText = 1;
@@ -30,7 +31,9 @@ public class InteractiveLabelAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (currentText == NumberOfSentences) {
+            Destroy(this.GetComponentInParent<Image>());
+        }
     }
 
     string[] ConvertFileToArrayString() {
@@ -53,6 +56,7 @@ public class InteractiveLabelAction : MonoBehaviour
         return null;
     }
     void TaskOnClick() {
+
         this.childText.text = FullDialog[this.currentText];
         this.currentText++;
     }
