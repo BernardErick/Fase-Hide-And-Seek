@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class LightController : MonoBehaviour
 {
     public float velocityLight = 0.3f;
     private int LightZ = 0;
     public GameObject Warning;
+    public GameObject Player;
+
     void Start()
     {
         StartCoroutine(LightRotateTime());
@@ -40,6 +42,7 @@ public class LightController : MonoBehaviour
             Debug.Log("Jogador capturado!");
             if (!collision.GetComponent<PlayerController>().invulnerable) {
                 this.Warning.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
+                SceneManager.LoadScene("GameOver");
             }
             else
                 Debug.Log("Spyman não pode fazer nada. Motivo: Jogador está invulneravel!");         

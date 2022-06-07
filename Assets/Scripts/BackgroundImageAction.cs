@@ -47,7 +47,7 @@ public class BackgroundImageAction : MonoBehaviour
                 this.GetComponent<Image>().sprite = sprites[6];
                 break;
             case 23:
-                SceneManager.LoadScene("Main");
+                SceneManager.LoadScene("Map");
                 break;
         }
     }

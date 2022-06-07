@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public bool can_walk;
     public bool invulnerable;
     public Animator animator;
+    public int dialogs;
     void Start()
     {
         
@@ -25,10 +26,15 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-
-        if (can_walk) {
-            this.rigidbody2D.transform.Translate(new Vector2(horizontal, vertical) * velocity * Time.deltaTime);
+        if (can_walk)
+        {
+            this.rigidbody2D.velocity = new Vector2(horizontal, vertical) * velocity;
+            //this.rigidbody2D.transform.Translate(new Vector2(horizontal, vertical) * velocity * Time.deltaTime);
             this.animation_controller(horizontal, vertical);
+        }
+        else {
+            this.rigidbody2D.velocity = new Vector2(0,0);
+            animation_controller(0, 0);
         }
             
     }

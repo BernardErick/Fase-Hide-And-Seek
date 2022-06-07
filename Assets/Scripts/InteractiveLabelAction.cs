@@ -32,7 +32,7 @@ public class InteractiveLabelAction : MonoBehaviour
     void Update()
     {
         if (currentText == NumberOfSentences) {
-            Destroy(this.GetComponentInParent<Image>());
+            Destroy(this.gameObject);
         }
     }
 
