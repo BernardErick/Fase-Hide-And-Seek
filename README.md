@@ -9,5 +9,6 @@
 - [x] Implementar sistema de esconde-esconde entre personagem, objeto e inimigo.
 - [REMOVIDO] Implementar perseguição do monstro ao ver o jogador não escondido.
 - [x] Tratar problemas de Label no eixo Z. (Sprites por cima de outros)
-- [ ] Aumento do tamanho da fase.
+- [x] Aumento do tamanho da fase.
 - [x] Iniciar mecanica de ver anotações.
+- [x] Fase completa.
